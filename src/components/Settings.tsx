@@ -83,7 +83,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
         <div>
           <div className="flex items-center gap-3 mb-4">
             <UserCheck className="w-5 h-5 text-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-700">Caregiver Mode</h3>
+            <h3 className="text-lg font-semibold text-white">Caregiver Mode</h3>
           </div>
           <label className="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-xl hover:border-gray-300 cursor-pointer">
             <input
