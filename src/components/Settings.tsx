@@ -25,7 +25,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Type className="w-5 h-5 text-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-700">Font Size</h3>
+            <h3 className="text-lg font-semibold text-white">Font Size</h3>
           </div>
           <div className="grid grid-cols-3 gap-3">
             {(['normal', 'large', 'extra-large'] as const).map((size) => (
@@ -51,7 +51,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Eye className="w-5 h-5 text-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-700">Display</h3>
+            <h3 className="text-lg font-semibold text-white">Display</h3>
           </div>
           <label className="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-xl hover:border-gray-300 cursor-pointer">
             <input
