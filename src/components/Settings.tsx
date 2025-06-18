@@ -60,7 +60,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
               onChange={(e) => handleSettingChange('highContrast', e.target.checked)}
               className="w-5 h-5 text-purple-600 border-2 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
             />
-            <span className="text-lg">High Contrast Mode</span>
+            <span className="text-lg text-white">High Contrast Mode</span>
           </label>
         </div>
 
