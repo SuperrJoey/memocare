@@ -18,7 +18,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
         <div className="p-3 bg-purple-100 rounded-full">
           <SettingsIcon className="w-6 h-6 text-purple-600" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Settings</h2>
+        <h2 className="text-2xl font-bold text-white">Settings</h2>
       </div>
 
       <div className="space-y-8">
