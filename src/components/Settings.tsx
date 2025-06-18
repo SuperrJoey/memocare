@@ -94,7 +94,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
             />
             <div className="flex-1">
               <span className="text-lg block text-white">Caregiver Mode</span>
-              <span className="text-sm text-gray-500">Allow caregivers to add memories on behalf of care recipient</span>
+              <span className="text-sm text-white">Allow caregivers to add memories on behalf of care recipient</span>
             </div>
           </label>
         </div>
