@@ -13,7 +13,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-100">
+    <div className="bg-black rounded-2xl shadow-lg p-8 border-2 border-gray-100">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 bg-purple-100 rounded-full">
           <SettingsIcon className="w-6 h-6 text-purple-600" />
