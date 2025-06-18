@@ -67,7 +67,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Mic className="w-5 h-5 text-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-700">Voice Features</h3>
+            <h3 className="text-lg font-semibold text-white">Voice Features</h3>
           </div>
           <label className="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-xl hover:border-gray-300 cursor-pointer">
             <input
