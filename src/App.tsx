@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Brain, Plus, Search, MessageSquare, Settings as SettingsIcon, List, Sparkles } from 'lucide-react';
+import { LandingPage } from './components/LandingPage';
 import { MemoryInput } from './components/MemoryInput';
 import { QueryInterface } from './components/QueryInterface';
 import { QuickPrompts } from './components/QuickPrompts';
@@ -11,6 +12,7 @@ import { AppSettings } from './types';
 type Tab = 'add' | 'search' | 'prompts' | 'memories' | 'settings';
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
   const [activeTab, setActiveTab] = useState<Tab>('prompts');
   const [settings, setSettings] = useState<AppSettings>({
     fontSize: 'large',
@@ -37,6 +39,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem('memory-tracker-settings', JSON.stringify(settings));
   }, [settings]);
+
+  const handleEnterApp = () => {
+    setShowLanding(false);
+  };
 
   const handleQuickQuery = (query: string) => {
     setActiveTab('search');
@@ -73,6 +79,11 @@ function App() {
     } 
     border-b sticky top-0 z-20 shadow-lg
   `;
+
+  // Show landing page first
+  if (showLanding) {
+    return <LandingPage onEnterApp={handleEnterApp} />;
+  }
 
   return (
     <div className={containerClass}>
