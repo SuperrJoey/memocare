@@ -32,12 +32,6 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({
     return (
       <button
         disabled
-        className={`
-          ${sizeClasses[size]} 
-          bg-gradient-to-br from-gray-300 to-gray-400 text-gray-500 
-          rounded-2xl cursor-not-allowed opacity-60 shadow-sm
-          ${className}
-        `}
         title="Voice not supported in this browser"
       >
         <MicOff className={iconSizes[size]} />

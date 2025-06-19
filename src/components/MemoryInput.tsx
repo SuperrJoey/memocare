@@ -76,11 +76,11 @@ export const MemoryInput: React.FC<MemoryInputProps> = ({ onAddMemory, caregiver
                     ? `border-purple-400 bg-gradient-to-br ${gradient} text-white shadow-lg` 
                     : `border-gray-200 ${bgColor} hover:border-gray-300 text-gray-700 hover:shadow-lg`
                   }
+                  focus:ring-4 focus:ring-purple-300 focus:outline-none
                 `}
               >
                 <Icon className="w-6 h-6" />
                 <span className="text-sm font-medium text-center leading-tight">{label}</span>
-                
               </button>
             ))}
           </div>
@@ -104,7 +104,7 @@ export const MemoryInput: React.FC<MemoryInputProps> = ({ onAddMemory, caregiver
                 isListening={isListening}
                 isSupported={isSupported}
                 onStartListening={() => startListening(handleVoiceInput)}
-                size="sm"
+                size="md"
               />
             </div>
             {/* Character count */}

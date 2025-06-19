@@ -39,6 +39,16 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
     }
   };
 
+  const getTypeGradient = (type: Memory['type']) => {
+    switch (type) {
+      case 'medication': return 'from-red-500 to-pink-600';
+      case 'appointment': return 'from-blue-500 to-indigo-600';
+      case 'location': return 'from-green-500 to-emerald-600';
+      case 'relationship': return 'from-pink-500 to-rose-600';
+      default: return 'from-gray-500 to-slate-600';
+    }
+  };
+
   if (displayMemories.length === 0) {
     return (
       <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl shadow-orange-500/10 p-10 border border-white/50">
@@ -146,6 +156,11 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
                         #{tag}
                       </span>
                     ))}
+                    {memory.tags.length > 5 && (
+                      <span className="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-xs">
+                        +{memory.tags.length - 5} more
+                      </span>
+                    )}
                   </div>
                 )}
               </div>

@@ -73,7 +73,7 @@ export const QueryInterface: React.FC<QueryInterfaceProps> = ({ onQuery }) => {
                 isListening={isListening}
                 isSupported={isSupported}
                 onStartListening={() => startListening(handleVoiceInput)}
-                size="sm"
+                size="md"
               />
             </div>
           </div>

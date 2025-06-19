@@ -87,8 +87,6 @@ export const QuickPrompts: React.FC<QuickPromptsProps> = ({ onPromptClick }) => 
             `}
             style={{ animationDelay: `${index * 100}ms` }}
           >
-
-            
             {/* Content */}
             <div className="relative z-10">
               <div className="flex items-start gap-4 mb-4">
@@ -108,8 +106,6 @@ export const QuickPrompts: React.FC<QuickPromptsProps> = ({ onPromptClick }) => 
                 <span>Click to search</span>
               </div>
             </div>
-
-
           </button>
         ))}
       </div>
