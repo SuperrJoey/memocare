@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mic, MicOff } from 'lucide-react';
+import { Mic, MicOff, Volume2 } from 'lucide-react';
 
 interface VoiceButtonProps {
   isListening: boolean;
@@ -17,19 +17,30 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({
   size = 'md'
 }) => {
   const sizeClasses = {
-    sm: 'p-2 text-sm',
-    md: 'p-3 text-base',
-    lg: 'p-4 text-lg'
+    sm: 'p-3 text-sm',
+    md: 'p-4 text-base',
+    lg: 'p-5 text-lg'
+  };
+
+  const iconSizes = {
+    sm: 'w-4 h-4',
+    md: 'w-5 h-5',
+    lg: 'w-6 h-6'
   };
 
   if (!isSupported) {
     return (
       <button
         disabled
-        className={`${sizeClasses[size]} bg-gray-300 text-gray-500 rounded-full cursor-not-allowed ${className}`}
+        className={`
+          ${sizeClasses[size]} 
+          bg-gradient-to-br from-gray-300 to-gray-400 text-gray-500 
+          rounded-2xl cursor-not-allowed opacity-60 shadow-sm
+          ${className}
+        `}
         title="Voice not supported in this browser"
       >
-        <MicOff className="w-5 h-5" />
+        <MicOff className={iconSizes[size]} />
       </button>
     );
   }
@@ -41,15 +52,34 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({
       className={`
         ${sizeClasses[size]} 
         ${isListening 
-          ? 'bg-red-500 text-white animate-pulse' 
-          : 'bg-blue-600 hover:bg-blue-700 text-white'
+          ? 'bg-gradient-to-br from-red-500 to-pink-600 text-white animate-pulse shadow-lg shadow-red-500/25' 
+          : 'bg-gradient-to-br from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white hover:shadow-lg hover:shadow-blue-500/25'
         } 
-        rounded-full transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none
+        rounded-2xl transition-all duration-300 focus:ring-4 focus:ring-blue-300/50 focus:outline-none
+        transform hover:scale-110 active:scale-95 disabled:transform-none
+        relative overflow-hidden group
         ${className}
       `}
-      title={isListening ? "Listening..." : "Click to speak"}
+      title={isListening ? "Listening... Speak now!" : "Click to speak"}
     >
-      <Mic className="w-5 h-5" />
+      {/* Background pulse animation for listening state */}
+      {isListening && (
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl animate-pulse"></div>
+      )}
+      
+      {/* Icon */}
+      <div className="relative z-10 flex items-center justify-center">
+        {isListening ? (
+          <Volume2 className={`${iconSizes[size]} animate-bounce`} />
+        ) : (
+          <Mic className={iconSizes[size]} />
+        )}
+      </div>
+      
+      {/* Ripple effect */}
+      {!isListening && (
+        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+      )}
     </button>
   );
 };
