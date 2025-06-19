@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Brain, Plus, Search, MessageSquare, Settings as SettingsIcon, List, Menu, X, Sparkles } from 'lucide-react';
+
+import { Brain, Plus, Search, MessageSquare, Settings as SettingsIcon, List, Sparkles } from 'lucide-react';
+
 import { MemoryInput } from './components/MemoryInput';
 import { QueryInterface } from './components/QueryInterface';
 import { QuickPrompts } from './components/QuickPrompts';
@@ -15,7 +17,7 @@ function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [settings, setSettings] = useState<AppSettings>({
     fontSize: 'large',
-    highContrast: true,
+    highContrast: false,
     voiceEnabled: true,
     caregiverMode: false
   });
@@ -45,11 +47,13 @@ function App() {
   };
 
   const tabs = [
-    { id: 'prompts' as Tab, label: 'Quick Help', icon: MessageSquare, color: 'from-emerald-500 to-teal-600', bgColor: 'bg-emerald-50', textColor: 'text-emerald-700' },
-    { id: 'search' as Tab, label: 'Search', icon: Search, color: 'from-blue-500 to-indigo-600', bgColor: 'bg-blue-50', textColor: 'text-blue-700' },
-    { id: 'add' as Tab, label: 'Add Memory', icon: Plus, color: 'from-purple-500 to-violet-600', bgColor: 'bg-purple-50', textColor: 'text-purple-700' },
-    { id: 'memories' as Tab, label: 'All Memories', icon: List, color: 'from-orange-500 to-amber-600', bgColor: 'bg-orange-50', textColor: 'text-orange-700' },
-    { id: 'settings' as Tab, label: 'Settings', icon: SettingsIcon, color: 'from-gray-500 to-slate-600', bgColor: 'bg-gray-50', textColor: 'text-gray-700' }
+
+    { id: 'prompts' as Tab, label: 'Quick Help', icon: MessageSquare, color: 'from-emerald-500 to-green-600', textColor: 'text-emerald-600' },
+    { id: 'search' as Tab, label: 'Search', icon: Search, color: 'from-blue-500 to-indigo-600', textColor: 'text-blue-600' },
+    { id: 'add' as Tab, label: 'Add Memory', icon: Plus, color: 'from-purple-500 to-violet-600', textColor: 'text-purple-600' },
+    { id: 'memories' as Tab, label: 'All Memories', icon: List, color: 'from-orange-500 to-amber-600', textColor: 'text-orange-600' },
+    { id: 'settings' as Tab, label: 'Settings', icon: SettingsIcon, color: 'from-gray-500 to-slate-600', textColor: 'text-gray-600' }
+
   ];
 
   const fontSizeClass = {
@@ -61,69 +65,83 @@ function App() {
   const containerClass = `
     min-h-screen transition-all duration-500 ease-in-out
     ${settings.highContrast 
-      ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white' 
-      : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100'
+      ? 'bg-gray-900 text-white' 
+      : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'
     }
     ${fontSizeClass}
   `;
 
   const headerClass = `
     ${settings.highContrast 
-      ? 'bg-gray-900/95 border-gray-700/50 shadow-2xl shadow-black/20' 
-      : 'bg-white/80 border-white/20 shadow-xl shadow-blue-500/10'
+      ? 'bg-gray-800 border-gray-600' 
+      : 'bg-white/70 border-white/20 backdrop-blur-xl'
     } 
-    backdrop-blur-xl border-b sticky top-0 z-50 transition-all duration-300
+    border-b sticky top-0 z-20 shadow-lg
   `;
 
   const activeTabConfig = tabs.find(tab => tab.id === activeTab);
 
   return (
     <div className={containerClass}>
-      {/* Modern Header */}
+      {/* Decorative Background Elements */}
+      {!settings.highContrast && (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
+        </div>
+      )}
+
+      {/* Header */}
       <header className={headerClass}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo Section */}
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-75"></div>
-                <div className="relative p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl">
-                  <Sparkles className="w-8 h-8 text-white" />
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex items-center gap-6">
+            <div className="relative">
+              <div className={`p-4 ${settings.highContrast ? 'bg-blue-600' : 'bg-gradient-to-br from-blue-500 to-indigo-600'} rounded-2xl shadow-xl`}>
+                <Brain className="w-10 h-10 text-white" />
+              </div>
+              {!settings.highContrast && (
+                <div className="absolute -top-1 -right-1">
+                  <Sparkles className="w-6 h-6 text-yellow-400 animate-pulse" />
                 </div>
-              </div>
-              <div>
-                <h1 className={`text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ${settings.highContrast ? 'text-white' : ''}`}>
-                  MemoCare
-                </h1>
-                <p className={`text-sm ${settings.highContrast ? 'text-gray-300' : 'text-gray-600'} font-medium`}>
-                  {settings.caregiverMode ? '👥 Caregiver Mode Active' : '🧠 Your AI Memory Assistant'}
-                </p>
-              </div>
+              )}
             </div>
+            <div>
+              <h1 className={`text-4xl font-bold ${settings.highContrast ? 'text-white' : 'bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'}`}>
+                MemoCare
+              </h1>
+              <p className={`text-xl mt-1 ${settings.highContrast ? 'text-gray-300' : 'text-gray-600'}`}>
+                {settings.caregiverMode ? '👩‍⚕️ Caregiver Mode Active' : '🧠 Your personal memory assistant'}
+              </p>
 
-            {/* Current Tab Indicator */}
-            <div className="hidden md:flex items-center gap-3">
-              <div className={`p-2 rounded-xl ${activeTabConfig?.bgColor} ${settings.highContrast ? 'bg-gray-800' : ''}`}>
-                <activeTabConfig.icon className={`w-5 h-5 ${settings.highContrast ? 'text-white' : activeTabConfig?.textColor}`} />
-              </div>
-              <span className={`font-semibold ${settings.highContrast ? 'text-white' : 'text-gray-700'}`}>
-                {activeTabConfig?.label}
-              </span>
             </div>
-
-            {/* Navigation Toggle */}
+      {/* Navigation */}
+      <nav className="max-w-7xl mx-auto px-6 py-8">
+        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+          {tabs.map((tab) => (
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
               className={`
-                p-3 rounded-xl transition-all duration-200 
-                ${settings.highContrast 
-                  ? 'bg-gray-800 hover:bg-gray-700 text-white' 
-                  : 'bg-white hover:bg-gray-50 text-gray-700 shadow-lg'
+
+                group relative flex items-center gap-3 px-8 py-5 rounded-2xl transition-all duration-300 font-semibold text-lg
+                transform hover:scale-105 hover:-translate-y-1 focus:ring-4 focus:ring-blue-300/50 focus:outline-none
+                ${activeTab === tab.id
+                  ? settings.highContrast
+                    ? 'bg-blue-600 text-white shadow-xl shadow-blue-600/25'
+                    : `bg-gradient-to-r ${tab.color} text-white shadow-xl shadow-${tab.color.split('-')[1]}-500/25`
+                  : settings.highContrast
+                    ? 'bg-gray-700 text-gray-300 hover:bg-gray-600 shadow-lg border border-gray-600'
+                    : 'bg-white/80 text-gray-700 hover:bg-white hover:shadow-xl backdrop-blur-sm border border-white/50'
+
                 }
                 focus:ring-4 focus:ring-blue-300 focus:outline-none
               `}
             >
-              {isNavOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <tab.icon className={`w-6 h-6 ${activeTab === tab.id ? 'text-white' : settings.highContrast ? 'text-gray-300' : tab.textColor} transition-colors duration-300`} />
+              <span className="relative z-10">{tab.label}</span>
+              {!settings.highContrast && activeTab !== tab.id && (
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-gray-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              )}
             </button>
           </div>
         </div>
@@ -222,7 +240,8 @@ function App() {
       )}
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 py-8">
+
+      <main className="max-w-7xl mx-auto px-6 pb-16">
         <div className="space-y-8">
           {/* Welcome Section */}
           {activeTab === 'prompts' && (
@@ -245,33 +264,43 @@ function App() {
           )}
 
           {activeTab === 'prompts' && (
-            <QuickPrompts onPromptClick={handleQuickQuery} />
+            <div className="animate-fadeIn">
+              <QuickPrompts onPromptClick={handleQuickQuery} />
+            </div>
           )}
           
           {activeTab === 'search' && (
-            <QueryInterface onQuery={queryMemories} />
+            <div className="animate-fadeIn">
+              <QueryInterface onQuery={queryMemories} />
+            </div>
           )}
           
           {activeTab === 'add' && (
-            <MemoryInput 
-              onAddMemory={addMemory}
-              caregiverMode={settings.caregiverMode}
-            />
+            <div className="animate-fadeIn">
+              <MemoryInput 
+                onAddMemory={addMemory}
+                caregiverMode={settings.caregiverMode}
+              />
+            </div>
           )}
           
           {activeTab === 'memories' && (
-            <MemoryList 
-              memories={memories}
-              title="All Memories"
-              limit={20}
-            />
+            <div className="animate-fadeIn">
+              <MemoryList 
+                memories={memories}
+                title="All Memories"
+                limit={20}
+              />
+            </div>
           )}
           
           {activeTab === 'settings' && (
-            <Settings 
-              settings={settings}
-              onSettingsChange={setSettings}
-            />
+            <div className="animate-fadeIn">
+              <Settings 
+                settings={settings}
+                onSettingsChange={setSettings}
+              />
+            </div>
           )}
         </div>
       </main>
