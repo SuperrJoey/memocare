@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, User, UserCheck, AlertCircle, Check, Calendar, MapPin, Pill, Users, Plus, Archive } from 'lucide-react';
+import { Clock, User, UserCheck, Calendar, MapPin, Pill, Users, Plus, Archive } from 'lucide-react';
 import { Memory } from '../types';
 
 interface MemoryListProps {

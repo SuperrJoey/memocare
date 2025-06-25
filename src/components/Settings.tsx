@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings as SettingsIcon, Type, Eye, Mic, UserCheck } from 'lucide-react';
+import { Settings as SettingsIcon, Type, Mic, UserCheck } from 'lucide-react';
 import { AppSettings } from '../types';
 
 interface SettingsProps {
