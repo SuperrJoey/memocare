@@ -100,8 +100,8 @@ function App() {
       <header className={headerClass}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center gap-6">
-            <div className="relative">
-              <div className={`p-4 ${settings.highContrast ? 'bg-blue-600' : 'bg-gradient-to-br from-blue-500 to-indigo-600'} rounded-2xl shadow-xl`}>
+            <div className="relative cursor-pointer group" onClick={() => setShowLanding(true)}>
+              <div className={`p-4 ${settings.highContrast ? 'bg-blue-600' : 'bg-gradient-to-br from-blue-500 to-indigo-600'} rounded-2xl shadow-xl group-hover:scale-105 transition-transform duration-300`}>
                 <Brain className="w-10 h-10 text-white" />
               </div>
               {!settings.highContrast && (

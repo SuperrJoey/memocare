@@ -41,20 +41,20 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
 
   if (displayMemories.length === 0) {
     return (
-      <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl shadow-orange-500/10 p-10 border border-white/50">
+      <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl shadow-orange-500/10 p-6 border border-white/50">
         <div className="text-center">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="p-4 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl shadow-lg">
-              <Archive className="w-8 h-8 text-white" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="p-3 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl shadow-lg">
+              <Archive className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
               {title}
             </h2>
           </div>
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
-            <div className="text-6xl mb-4">🔍</div>
-            <p className="text-xl text-gray-600 mb-2">No memories to display yet</p>
-            <p className="text-gray-500">Start adding memories to see them here!</p>
+          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-100">
+            <div className="text-4xl mb-3">🔍</div>
+            <p className="text-lg text-gray-600 mb-2">No memories to display yet</p>
+            <p className="text-sm text-gray-500">Start adding memories to see them here!</p>
           </div>
         </div>
       </div>
@@ -62,49 +62,49 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl shadow-orange-500/10 p-10 border border-white/50">
-      <div className="text-center mb-10">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <div className="p-4 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl shadow-lg">
-            <Archive className="w-8 h-8 text-white" />
+    <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl shadow-orange-500/10 p-6 border border-white/50">
+      <div className="text-center mb-6">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <div className="p-3 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl shadow-lg">
+            <Archive className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
             {title}
           </h2>
         </div>
         {memories.length > limit && (
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 rounded-full border border-orange-100">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-orange-50 to-amber-50 rounded-full border border-orange-100">
             <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></div>
-            <span className="text-sm text-gray-600 font-medium">
+            <span className="text-xs text-gray-600 font-medium">
               Showing {limit} of {memories.length} memories
             </span>
           </div>
         )}
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-4">
         {displayMemories.map((memory, index) => (
           <div
             key={memory.id}
-            className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            className="bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-white/50 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="flex items-start gap-5">
+            <div className="flex items-start gap-3">
               {/* Type Icon */}
-              <div className={`flex-shrink-0 p-3 bg-gradient-to-br ${getTypeColor(memory.type)} rounded-xl shadow-md transition-transform duration-300`}>
+              <div className={`flex-shrink-0 p-2 bg-gradient-to-br ${getTypeColor(memory.type)} rounded-lg shadow-md transition-transform duration-300`}>
                 {getTypeIcon(memory.type)}
                 <div className="text-white"></div>
               </div>
               
-              <div className="flex-1 space-y-4">
+              <div className="flex-1 space-y-3">
                 {/* Content */}
-                <p className="text-lg text-gray-800 leading-relaxed font-medium">{memory.content}</p>
+                <p className="text-base text-gray-800 leading-relaxed font-medium">{memory.content}</p>
                 
                 {/* Metadata */}
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2">
                   {/* Timestamp */}
-                  <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">
-                    <Clock className="w-4 h-4" />
+                  <div className="flex items-center gap-1 px-2 py-1 bg-gray-100 rounded-full text-xs text-gray-600">
+                    <Clock className="w-3 h-3" />
                     <span>{new Date(memory.timestamp).toLocaleDateString('en-US', { 
                       month: 'short', 
                       day: 'numeric', 
@@ -114,35 +114,35 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
                   </div>
                   
                   {/* Added by */}
-                  <div className="flex items-center gap-2 px-3 py-1 bg-blue-100 rounded-full text-sm text-blue-700">
-                    {memory.addedBy === 'caregiver' ? <UserCheck className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-blue-100 rounded-full text-xs text-blue-700">
+                    {memory.addedBy === 'caregiver' ? <UserCheck className="w-3 h-3" /> : <User className="w-3 h-3" />}
                     <span className="font-medium">
                       {memory.addedBy === 'caregiver' ? 'Caregiver' : 'Self-added'}
                     </span>
                   </div>
                   
                   {/* Priority */}
-                  <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${getPriorityColor(memory.priority)}`}>
-                    <div className="w-2 h-2 bg-white/80 rounded-full"></div>
+                  <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getPriorityColor(memory.priority)}`}>
+                    <div className="w-1.5 h-1.5 bg-white/80 rounded-full"></div>
                     <span>{memory.priority.toUpperCase()}</span>
                   </div>
                   
                   {/* Type */}
-                  <div className="flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <div className="flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
                     <span className="capitalize">{memory.type.replace('_', ' ')}</span>
                   </div>
                 </div>
                 
                 {/* Tags */}
                 {memory.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {memory.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 rounded-full text-xs font-medium border border-indigo-100 hover:bg-indigo-100 transition-colors duration-200"
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 rounded-full text-xs font-medium border border-indigo-100 hover:bg-indigo-100 transition-colors duration-200"
                       >
-                        <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                        <div className="w-1 h-1 bg-indigo-500 rounded-full"></div>
                         #{tag}
                       </span>
                     ))}
@@ -150,36 +150,34 @@ export const MemoryList: React.FC<MemoryListProps> = ({ memories, title, limit =
                 )}
               </div>
             </div>
-
-
           </div>
         ))}
       </div>
 
       {/* Summary Stats */}
-      <div className="mt-10 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-100">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="space-y-2">
-            <div className="text-2xl font-bold text-gray-800">{memories.length}</div>
-            <div className="text-sm text-gray-600">Total Memories</div>
+      <div className="mt-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+          <div className="space-y-1">
+            <div className="text-xl font-bold text-gray-800">{memories.length}</div>
+            <div className="text-xs text-gray-600">Total Memories</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-2xl font-bold text-red-600">
+          <div className="space-y-1">
+            <div className="text-xl font-bold text-red-600">
               {memories.filter(m => m.priority === 'high').length}
             </div>
-            <div className="text-sm text-gray-600">High Priority</div>
+            <div className="text-xs text-gray-600">High Priority</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-2xl font-bold text-blue-600">
+          <div className="space-y-1">
+            <div className="text-xl font-bold text-blue-600">
               {memories.filter(m => m.type === 'medication').length}
             </div>
-            <div className="text-sm text-gray-600">Medication</div>
+            <div className="text-xs text-gray-600">Medication</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-2xl font-bold text-purple-600">
+          <div className="space-y-1">
+            <div className="text-xl font-bold text-purple-600">
               {memories.filter(m => m.addedBy === 'caregiver').length}
             </div>
-            <div className="text-sm text-gray-600">By Caregiver</div>
+            <div className="text-xs text-gray-600">By Caregiver</div>
           </div>
         </div>
       </div>

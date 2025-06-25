@@ -51,11 +51,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           <div className="space-y-6">
             <div className="flex items-center justify-center gap-4 mb-8 animate-fadeInDown">
               <div className="relative">
-                <div className="p-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-2xl animate-glow hover:scale-110 transition-transform duration-300">
-                  <Brain className="w-16 h-16 text-white animate-pulse" />
+                <div className="p-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-2xl animate-glow hover:scale-110 transition-transform duration-300">
+                  <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-white animate-pulse" />
                 </div>
                 <div className="absolute -top-2 -right-2">
-                  <Sparkles className="w-8 h-8 text-yellow-400 animate-bounce" />
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-bounce" />
                 </div>
                 {/* Orbital rings */}
                 <div className="absolute inset-0 rounded-3xl border-2 border-blue-300/30 animate-spin" style={{ animationDuration: '10s' }}></div>
@@ -64,13 +64,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
             </div>
             
             <div className="animate-slideInLeft">
-              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 cursor-default">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 cursor-default">
                 MemoCare
               </h1>
             </div>
             
             <div className="animate-slideInRight" style={{ animationDelay: '0.3s' }}>
-              <p className="text-2xl md:text-3xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto opacity-0 animate-fadeInUp" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto opacity-0 animate-fadeInUp" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
                 Your intelligent memory companion for a more organized, peaceful mind
               </p>
             </div>
@@ -78,17 +78,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
 
           {/* Key Benefits */}
           <div className="space-y-8">
-            <div className="flex items-center justify-center gap-8 text-lg text-gray-600 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base md:text-lg text-gray-600 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
               <div className="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
-                <Heart className="w-5 h-5 text-red-500 animate-pulse" />
+                <Heart className="w-4 h-4 text-red-500 animate-pulse" />
                 <span>Compassionate Care</span>
               </div>
               <div className="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
-                <Clock className="w-5 h-5 text-blue-500 animate-bounce" style={{ animationDelay: '0.5s' }} />
+                <Clock className="w-4 h-4 text-blue-500 animate-bounce" style={{ animationDelay: '0.5s' }} />
                 <span>Always Available</span>
               </div>
               <div className="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
-                <Shield className="w-5 h-5 text-green-500 animate-bounce" style={{ animationDelay: '1s' }} />
+                <Shield className="w-4 h-4 text-green-500 animate-bounce" style={{ animationDelay: '1s' }} />
                 <span>100% Private</span>
               </div>
             </div>
@@ -97,13 +97,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
             <div className="space-y-4 opacity-0 animate-fadeInUp" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
               <button
                 onClick={onEnterApp}
-                className="group inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xl font-semibold rounded-2xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 shadow-2xl hover:shadow-blue-500/50 focus:ring-4 focus:ring-blue-300/50 focus:outline-none animate-glow"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-base font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/50 focus:ring-4 focus:ring-blue-300/50 focus:outline-none animate-glow"
               >
                 <span>Start Your Memory Journey</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               
-              <p className="text-sm text-gray-500 animate-pulse">
+              <p className="text-xs text-gray-500 animate-pulse">
                 No signup required • Start immediately • Free to use
               </p>
             </div>
@@ -115,31 +115,31 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
       <div className="relative z-10 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4 hover:scale-105 transition-transform duration-300">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 hover:scale-105 transition-transform duration-300">
               Why Choose MemoCare?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Designed with care, built for simplicity, powered by intelligence
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:rotate-1 animate-fadeInUp"
+                className="group bg-white/80 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:rotate-1 animate-fadeInUp"
                 style={{ animationDelay: `${(index + 3) * 200}ms` }}
               >
                 <div className="space-y-4">
-                  <div className="p-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl w-fit shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-glow">
-                    <feature.icon className="w-8 h-8 text-white group-hover:animate-bounce" />
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl w-fit shadow-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-glow">
+                    <feature.icon className="w-6 h-6 text-white group-hover:animate-bounce" />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {feature.description}
                   </p>
                 </div>
@@ -155,21 +155,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
       {/* Footer CTA */}
       <div className="relative z-10 py-16 px-6">
         <div className="max-w-4xl mx-auto text-center animate-fadeInUp">
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-12 border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 animate-glow">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4 animate-slideInLeft">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 animate-glow">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 animate-slideInLeft">
               Ready to enhance your memory?
             </h3>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slideInRight" style={{ animationDelay: '0.2s' }}>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slideInRight" style={{ animationDelay: '0.2s' }}>
               Join thousands who trust MemoCare to keep their important memories safe and accessible.
             </p>
             
             <div className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
               <button
                 onClick={onEnterApp}
-                className="group inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/50 animate-pulse"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white text-base font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/50 animate-pulse"
               >
                 <span>Get Started Now</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
             
